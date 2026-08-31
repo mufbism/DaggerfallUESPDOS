@@ -1,0 +1,59 @@
+# Build artifacts -- reproducible from source (see Makefile for
+# DAGREAD.EXE, or plain WSL gcc per README for the native test binaries)
+# rather than committed.
+*.o
+*.exe
+*.EXE
+test/*
+!test/*.c
+
+# Extraction/conversion pipeline intermediates -- regenerable from tools/
+# given the UESP XML dump (raw/) and then raw/ itself (converted/). Only
+# the final assembled database (dist/UDFP.DAT) is committed -- see README
+# for how to reproduce these two steps.
+raw/
+converted/
+
+# DOSBox local test/deploy sandbox and packaging staging -- personal
+# working copies assembled from dist/UDFP.DAT plus a compiled
+# DAGREAD.EXE, CWSDPMI.EXE (third-party DPMI host), and screenshot
+# captures. Rebuild locally rather than committing; see README.
+dosbox_run/
+release/
+*.zip
+
+# One-off research/dev scratch, not part of the shipped reader or its
+# real build pipeline: an earlier considered-and-rejected HTML-output
+# prototype (preview/, tools/preview-html.js), a downloaded third-party
+# reference sample used only to evaluate that approach (penc-sample/,
+# penc1ih.zip -- not ours to redistribute), the saved UESP
+# Template:Chart doc and flowchart screenshot used to decode the Main
+# Quest diagram's glyphs/topology by hand (template.html, flowchart.png
+# -- development reference, not shipped content), ImageMagick crop
+# scratch from that same investigation, throwaway iteration on the Main
+# Quest diagram generator before it settled into
+# tools/main-quest-diagram.js + tools/quest-diagram-helper.js (the two
+# tools/convert.js actually requires), and a one-off debug harness
+# (src/repcheck.c, not part of the Makefile's real OBJS list).
+preview/
+penc-sample/
+penc1ih.zip
+template.html
+flowchart.png
+crop*.png
+tools/preview-html.js
+tools/quest-diagram-final.js
+tools/quest-diagram-part1.js
+tools/quest-diagram-part2.js
+tools/quest-diagram-part3.js
+tools/quest-diagram-output.txt
+src/repcheck.c
+
+# Rolling pre-git backup convention (see memory/backup-before-overwrite)
+# -- git itself is the backup mechanism now, this predates it.
+backups/
+
+# Editor/OS cruft
+.DS_Store
+Thumbs.db
+*.swp
