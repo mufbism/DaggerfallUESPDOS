@@ -9,9 +9,7 @@ data file and browsed with a keyboard- and mouse-driven text-mode UI:
 Wikipedia-style pages with breadcrumbs, boxed infobox fact-sheets,
 tables, and clickable/Tab-cyclable internal links.
 
-Sibling project to Sefer (a similar offline DOS reader for Judaic texts)
--- same native DJGPP C toolkit approach, built independently for this
-content.
+
 
 ## Status
 
